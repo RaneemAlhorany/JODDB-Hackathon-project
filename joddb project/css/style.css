@@ -1,0 +1,155 @@
+:root {
+    --sidebar-bg: #959b9e;     /* Blue sidebar */
+    --main-bg: #EBEBEB;        /* light gray background */
+    --card-bg: #ffffff;        /* white cards */
+    --accent-start: #24D800;   /* bright green */
+    --accent-end: #868585;     /* gray accent */
+    --text: #1a1a1a;
+}
+
+* { box-sizing: border-box; }
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Inter, Segoe UI, Arial;
+    background: var(--main-bg);
+    color: var(--text);
+}
+
+/* Sidebar */
+.app { display: flex; min-height: 100vh; }
+
+.sidebar {
+    width: 240px;
+    background: var(--sidebar-bg);
+    padding: 24px 16px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.brand {
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 18px;
+}
+
+.logo { font-weight: 700; font-size: 20px; color: #007AC2; }
+.sub { font-size: 12px; color:#007AC2 }
+
+.nav { display: flex; flex-direction: column; margin-top: 12px; }
+.nav-item {
+    display: block;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    background: transparent;
+    transition: background 0.3s;
+}
+.nav-item.active, .nav-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    font-weight: 600;
+}
+
+/* Main area */
+.main { flex: 1; padding: 18px 22px; }
+.topbar { background: transparent; padding: 6px 0 18px; }
+.topbar h1 { margin: 0; font-size: 20px; color: #333; }
+
+/* Stat cards */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 18px;
+}
+.stat-card {
+    background: var(--card-bg);
+    padding: 14px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+}
+.stat-title { font-size: 13px; color: #666; }
+.stat-value { font-size: 22px; font-weight: 700; margin-top: 8px; }
+
+/* Panels */
+.panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr 320px;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+.panel {
+    background: var(--card-bg);
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+.chart-panel .panel-inner { height: 220px; display: flex; flex-direction: column; }
+.chart-panel.tall .panel-inner { height: 320px; }
+.panel h3 { margin: 0 0 8px; font-size: 15px; color: #333; }
+
+/* Lower section */
+.lower { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.projects-panel .projects-list { display: flex; flex-direction: column; gap: 10px; }
+
+.project-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.02), transparent);
+    border-radius: 8px;
+}
+.project-meta { flex: 1; margin-right: 12px; }
+.project-name { font-weight: 600; margin-bottom: 6px; }
+
+.project-progress {
+    height: 12px;
+    background: #e9eef6;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.progress-bar {
+    height: 100%;
+    width: var(--p);
+    background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+    border-radius: 8px;
+    transition: width 0.6s ease;
+}
+.project-deadline { font-size: 12px; color: #666; min-width: 80px; text-align: right; }
+
+/* Tables */
+.table-panel .table-wrap { overflow: auto; }
+table { width: 100%; border-collapse: collapse; }
+thead th {
+    background: #3064E7;
+    padding: 10px;
+    color: #fff;
+    border-radius: 6px 6px 0 0;
+    text-align: left;
+}
+tbody td {
+    padding: 10px;
+    border-top: 1px solid #eee;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .panels { grid-template-columns: 1fr 1fr 1fr; }
+    .chart-panel.tall { grid-column: span 3; }
+}
+@media (max-width: 900px) {
+    .app { flex-direction: column; }
+    .sidebar { width: 100%; flex-direction: row; align-items: center; justify-content: space-between; }
+    .nav { flex-direction: row; }
+    .nav-item { margin: 0 6px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .panels { grid-template-columns: 1fr; }
+    .lower { grid-template-columns: 1fr; }
+}

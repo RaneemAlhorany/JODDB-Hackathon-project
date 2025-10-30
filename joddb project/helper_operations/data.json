@@ -1,0 +1,22 @@
+[
+    {
+        "id": "entry-1761779820534-a54rbb",
+        "operationId": "op-1761779820534-3gc2lf",
+        "serialNumber": "JO964",
+        "operation": "L2",
+        "status": "FocusA360",
+        "duration": "0:00:02",
+        "notes": "l",
+        "timestamp": "2025-10-29T23:17:00.534Z"
+    },
+    {
+        "id": "entry-1761779709483-pt19sv",
+        "operationId": "op-1761779709483-0bnv0u",
+        "serialNumber": "JO965",
+        "operation": "L2",
+        "status": "FocusA360",
+        "duration": "0:00:02",
+        "notes": "",
+        "timestamp": "2025-10-29T23:15:09.483Z"
+    }
+]
